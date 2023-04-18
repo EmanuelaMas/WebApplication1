@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Staff>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <p>@Html.ActionLink("Aggiungi Staff", "Create")</p>
+    
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(item => item.StaffId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(item => item.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(item => item.LastName)
+            </th>
+            <th>Modifica</th>
+            <th>Rimuovi</th>
+
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StaffId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @*fanno una get -> si devono modificare in post*@
+
+                    @Html.ActionLink("°", "Edit", new {id = item.StaffId})
+                </td>
+                <td>
+                    @*fanno una get -> si devono modificare in delete*@
+
+                    @Html.ActionLink("°", "Remove", new {id = item.StaffId})
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>
